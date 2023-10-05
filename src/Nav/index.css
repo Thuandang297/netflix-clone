@@ -1,0 +1,39 @@
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    transition: all 1s;
+    transition-timing-function: ease-in 0.3s;
+}
+
+.nav_black {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    background-color: black;
+    transition: all 1s;
+    transition-timing-function: ease-in 0.3s;
+}
+
+.nav_icon {
+    width: 100px;
+    left: 0;
+    padding-left: 10px;
+    background-color: transparent;
+    height: 45px;
+}
+
+.nav_avatar {
+    height: 45px;
+    width: 45px;
+    right: 0;
+    padding-right: 10px
+}

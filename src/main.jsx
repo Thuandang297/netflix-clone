@@ -5,11 +5,13 @@ import "./index.css";
 import Row from "./Row/index.jsx";
 import request from "./request.js";
 import Banner from "./Banner/index.jsx";
+import Nav from "./Nav/index.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <div className="app">
     {/* <React.StrictMode> */}
     {/* <NavBar/> */}
     {/* Banner */}
+    <Nav />
     <Banner />
 
     <Row
@@ -18,27 +20,19 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       title="Netflix Origionals"
       fetchUrl={request.fetchNetflixOriginals}
     />
+    <Row
+      key={2}
+      title="Top Action Movies"
+      fetchUrl={request.fetchTopActionMovies}
+    />
     {/* <Row
-        key={2}
-        title="Top Action Movies"
-        fetchUrl={request.fetchTopActionMovies}
-      />
-      <Row
-        key={3}
-        title="Top Horrnor Movies"
-        fetchUrl={request.fetchTopHorrnorMovies}
-      />
-      <Row key={4} title="Top Rated" fetchUrl={request.fetchTopRated} />
-      <Row
-        key={5}
-        title="Top Romance"
-        fetchUrl={request.fetchTopRomanceMovies}
-      />
-      <Row
-        key={6}
-        title="Top Comendy"
-        fetchUrl={request.fetchTopComendyMovies}
-      /> */}
+      key={3}
+      title="Top Horrnor Movies"
+      fetchUrl={request.fetchTopHorrnorMovies}
+    />
+    <Row key={4} title="Top Rated" fetchUrl={request.fetchTopRated} />
+    <Row key={5} title="Top Romance" fetchUrl={request.fetchTopRomanceMovies} />
+    <Row key={6} title="Top Comendy" fetchUrl={request.fetchTopComendyMovies} /> */}
     {/* </React.StrictMode> */}
   </div>
 );
