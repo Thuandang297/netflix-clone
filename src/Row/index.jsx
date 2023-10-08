@@ -2,9 +2,11 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "../axios";
 import "./index.css";
+import YouTube from "react-youtube";
+import movieTrailer from "movie-trailer";
 function Row(props) {
   const { title, fetchUrl, isLargerRow } = props;
-
+  const [trailerURL, setTrailerURL] = useState("");
   const [movies, setMovies] = useState([]);
   const baseURL = "http://image.tmdb.org/t/p/original/";
   useEffect(() => {
@@ -14,6 +16,26 @@ function Row(props) {
     }
     getData();
   }, []);
+  const handleClickPicture = (movie) => {
+    movieTrailer(movie?.name || movie?.title)
+      ?.then((url) => {
+        console.log(url);
+        let idVideoTrailer =
+          url && new URLSearchParams(new URL(url).search).get("v");
+        setTrailerURL(idVideoTrailer);
+      })
+      ?.catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  const opts = {
+    height: "450px",
+    width: "100%",
+    playerVar: {
+      autoplay: 1,
+    },
+  };
   return (
     <div>
       <h2>{title}</h2>
@@ -27,10 +49,12 @@ function Row(props) {
               }`}
               size="40px"
               alt={item.name}
+              onClick={() => handleClickPicture(item)}
             ></img>
           );
         })}
       </div>
+      {trailerURL && <YouTube videoId={trailerURL} opts={opts} />}
     </div>
   );
 }
