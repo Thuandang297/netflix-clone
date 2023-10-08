@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
+import netflixLogo from "/netflix.png";
 const Nav = () => {
   const [black, setBlack] = useState(false);
   useEffect(() => {
@@ -14,7 +15,7 @@ const Nav = () => {
   }, []);
   return (
     <div className={black ? "nav_black" : "nav"}>
-      <img src="" className="nav_icon" alt="Netflix"></img>
+      <img src={netflixLogo} className="nav_icon" alt="Netflix"></img>
       <img
         className="nav_avatar"
         src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png?20201013161117"
